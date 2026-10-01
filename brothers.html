@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BROTHERS | فطورك عالسريع</title>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Cairo:wght@400;700;900&family=Bungee&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3e9d2;--ink:#1d2b2a;--card:#fbf5e6;--red:#a12b2b;--gold:#d8a23c;--teal:#1f4a47;--line:#1d2b2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#15201f;--ink:#f3e9d2;--card:#1f2e2c;--line:#f3e9d2}}
+:root[data-theme="dark"]{--bg:#15201f;--ink:#f3e9d2;--card:#1f2e2c;--line:#f3e9d2}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Cairo,Tahoma,sans-serif;line-height:1.7;overflow-x:hidden}
+.checker{height:22px;background:repeating-conic-gradient(var(--ink) 0 25%,var(--bg) 0 50%) 0 0/22px 22px}
+header{background:var(--teal);color:#f3e9d2;text-align:center;padding:92px 16px 40px;position:relative;overflow:hidden}
+.open{display:inline-flex;gap:8px;align-items:center;background:#0006;border:2px solid var(--gold);border-radius:99px;padding:2px 16px;font-weight:700}
+.dot{width:10px;height:10px;border-radius:50%;background:#e33;animation:blink 1.2s infinite}
+.dot.on{background:#5f5}
+@keyframes blink{50%{opacity:.25}}
+.logo{font-family:Bungee,Impact,sans-serif;direction:ltr;font-size:clamp(46px,14vw,132px);line-height:1;margin:18px 0 6px;color:var(--gold);text-shadow:4px 4px 0 var(--red);display:flex;justify-content:center;align-items:center;cursor:pointer;}.live .logo{animation:drop .9s cubic-bezier(.3,1.6,.5,1) both}
+@keyframes drop{from{transform:translateY(-120%) rotate(-4deg);opacity:0}}
+.o{width:.9em;height:.9em;margin:0 .02em;position:relative}
+.o svg{position:absolute;inset:0;width:100%;height:100%;transition:opacity .5s,transform .8s}
+.o .wheel{opacity:0;transform:rotate(-180deg) scale(.6)}
+.logo.alt .egg{opacity:0;transform:rotate(180deg) scale(.6)}
+.logo.alt .wheel{opacity:1;transform:none}
+.tag{font-family:Lalezar,Cairo,sans-serif;font-size:clamp(22px,5vw,38px)}
+.hint{font-size:14px;opacity:.85}
+.steam{position:absolute;bottom:0;width:14px;height:60px;border-radius:50%;background:#f3e9d233;filter:blur(6px);animation:rise 4s infinite}
+@keyframes rise{from{transform:translateY(0) scaleX(1);opacity:.8}to{transform:translateY(-140px) scaleX(2.4);opacity:0}}
+.road{height:46px;background:#222;position:relative;overflow:hidden;border-block:4px solid var(--gold)}
+.road::before{content:"";position:absolute;top:21px;inset-inline:0;height:4px;background:repeating-linear-gradient(90deg,#f3e9d2 0 30px,transparent 0 60px);animation:lane 1s linear infinite}
+@keyframes lane{to{background-position:60px 0}}
+.car{position:absolute;top:6px;font-size:30px;direction:ltr;animation:drive 9s linear infinite}
+@keyframes drive{from{left:-60px}to{left:105%}}
+main{max-width:980px;margin:auto;padding:32px 16px}
+h2{font-family:Lalezar,Cairo,sans-serif;font-size:clamp(30px,6vw,46px);color:var(--red);font-weight:400;margin-bottom:6px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 22px}
+.tab{font:700 16px Cairo,sans-serif;border:3px solid var(--line);background:var(--card);color:var(--ink);padding:6px 18px;border-radius:99px;cursor:pointer;transition:transform .15s}
+.tab:active{transform:scale(.94)}
+.tab.on{background:var(--red);color:#fbf5e6;border-color:var(--red)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.item{background:var(--card);border:3px solid var(--line);border-radius:14px;padding:16px;box-shadow:6px 6px 0 var(--gold);display:flex;flex-direction:column;gap:6px;animation:pop .4s both}
+@keyframes pop{from{transform:scale(.92) rotate(-1deg);opacity:0}}
+.item b{font-family:Lalezar,Cairo,sans-serif;font-size:24px;font-weight:400}
+.item p{font-size:14px;opacity:.85;flex:1}
+.row{display:flex;justify-content:space-between;align-items:center}
+.price{font-weight:900;color:var(--red);font-size:20px}
+.btn{font:700 16px Cairo,sans-serif;border:3px solid var(--line);background:var(--gold);color:#1d2b2a;padding:4px 16px;border-radius:10px;cursor:pointer;box-shadow:3px 3px 0 var(--line);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translate(3px,3px);box-shadow:0 0 0 var(--line)}
+.btn.big{width:100%;padding:10px;font-size:19px;background:var(--red);color:#fbf5e6;margin-top:10px}
+.btn[disabled]{opacity:.45;pointer-events:none}
+.qarrib{margin-top:54px;background:var(--teal);color:#f3e9d2;border-radius:20px;border:4px solid var(--gold);padding:24px 18px;position:relative}
+.qarrib h2{color:var(--gold)}
+.qarrib .sub{opacity:.9;margin-bottom:14px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:720px){.cols{grid-template-columns:1fr}}
+.panel{background:#0004;border-radius:14px;padding:14px}
+.line{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed #f3e9d255;align-items:center}
+.line button{background:none;border:2px solid var(--gold);color:var(--gold);width:26px;height:26px;border-radius:50%;cursor:pointer;font-weight:900}
+.empty{opacity:.8}
+.plate{display:flex;direction:ltr;border:4px solid #111;border-radius:10px;background:#fff;color:#111;overflow:hidden;width:max-content;max-width:100%;margin:8px 0}
+.plate span{background:#1c7a43;color:#fff;font-size:11px;padding:4px 8px;display:flex;align-items:center;font-weight:700}
+.plate input{font:900 26px Bungee,Impact,sans-serif;border:0;outline:0;background:#fff;color:#111;text-align:center;padding:4px;width:5.4ch;text-transform:uppercase}
+.plate input.n{width:6.4ch;border-inline-start:3px solid #111}
+.plate input:focus-visible{background:#ffe9a8}
+.total{font-family:Lalezar,Cairo,sans-serif;font-size:30px;color:var(--gold)}
+.note{font-size:12px;opacity:.75;margin-top:8px}
+.track{display:none}
+.track.on{display:block}
+.steps{display:grid;gap:10px;margin:12px 0}
+.step{display:flex;gap:10px;align-items:center;opacity:.4;transition:.4s}
+.step.done{opacity:1}
+.step i{width:26px;height:26px;border-radius:50%;border:3px solid var(--gold);display:grid;place-items:center;font-style:normal;font-size:14px}
+.step.done i{background:var(--gold);color:#1d2b2a}
+.drive{height:44px;border-radius:10px;background:#222;position:relative;overflow:hidden;direction:ltr;margin:10px 0}
+.drive .c{position:absolute;top:6px;font-size:28px;left:2%;transition:left 1.2s ease}
+.drive .w{position:absolute;right:8px;top:8px;font-size:22px}
+.ready{font-family:Lalezar,Cairo,sans-serif;font-size:28px;color:var(--gold);animation:pulse 1s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+footer{text-align:center;padding:26px 16px 34px;background:var(--ink);color:var(--bg);font-size:14px}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+[id]{scroll-margin-top:70px}
+#intro{position:fixed;inset:0;z-index:100;background:#1f4a47;color:#f3e9d2;display:grid;place-items:center;direction:ltr;text-align:center;animation:wipe .9s cubic-bezier(.76,0,.24,1) 3.1s forwards}
+@keyframes wipe{to{clip-path:inset(0 0 100% 0)}}
+.mk{display:flex;align-items:flex-start;justify-content:center;font-family:Bungee,Impact,sans-serif;font-size:min(32vw,36vh);line-height:.85;text-shadow:5px 5px 0 var(--red)}
+.mk .b2{color:var(--gold)}
+#intro .b1{animation:fl .9s cubic-bezier(.2,.9,.2,1) both}
+#intro .b2{animation:fr .9s cubic-bezier(.2,.9,.2,1) both,sup .7s cubic-bezier(.7,0,.2,1) 1.1s forwards}
+@keyframes fl{from{translate:-70vw 0;opacity:0;filter:blur(14px)}}
+@keyframes fr{from{translate:70vw 0;opacity:0;filter:blur(14px)}}
+@keyframes sup{to{font-size:.46em;margin-top:.06em}}
+.wm{font-family:Bungee,Impact,sans-serif;font-size:min(7vw,8vh);letter-spacing:.3em;margin-top:2vh;display:flex;justify-content:center;overflow:hidden}
+.wm span{display:inline-block;animation:up .6s cubic-bezier(.2,.9,.2,1) both;animation-delay:calc(1.8s + var(--i)*.06s)}
+@keyframes up{from{translate:0 110%}}
+#skip{position:absolute;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));background:none;border:2px solid #f3e9d288;color:#f3e9d2;border-radius:99px;padding:4px 16px;font:700 14px Cairo,sans-serif;cursor:pointer}
+nav{position:fixed;top:env(safe-area-inset-top,0px);inset-inline:0;z-index:50;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px clamp(12px,3vw,36px);background:#1f4a47ec;backdrop-filter:blur(8px);color:#f3e9d2;border-bottom:3px solid var(--gold)}
+.nl{font:30px/1 Bungee,Impact,sans-serif;color:var(--gold);text-decoration:none;direction:ltr;display:flex;align-items:flex-start}
+.nl i{font-style:normal;font-size:.5em;color:#f3e9d2}
+.lk{display:flex;gap:clamp(10px,2.4vw,30px);font-weight:700;font-size:15px}
+.lk a{color:#f3e9d2;text-decoration:none;transition:color .2s}.lk a:hover{color:var(--gold)}
+.ac{display:flex;gap:8px;align-items:center}
+.lgb{font:700 13px Cairo,sans-serif;background:none;border:2px solid #f3e9d2;color:#f3e9d2;border-radius:99px;padding:2px 12px;cursor:pointer}
+.nb{background:var(--gold);color:#1d2b2a;font-weight:900;border:2px solid #1d2b2a;border-radius:99px;padding:2px 16px;text-decoration:none;box-shadow:3px 3px 0 #0006;transition:transform .15s}
+.nb:hover{transform:rotate(-3deg) scale(1.06)}
+.pg{position:absolute;bottom:-3px;inset-inline-start:0;height:3px;background:var(--red);width:0}
+@media(max-width:640px){.nl{display:none}.lk{font-size:13px;gap:10px}.nb{padding:2px 10px}}
+.st{height:260vh;position:relative}
+.sk{position:sticky;top:0;height:100vh;overflow:hidden;background:var(--teal);color:#f3e9d2;display:grid;place-items:center;text-align:center}
+.pr2{position:absolute;top:14vh;inset-inline:0;display:flex;justify-content:center;align-items:flex-start;font:min(58vw,66vh)/.8 Bungee,Impact,sans-serif;direction:ltr;text-shadow:8px 8px 0 var(--red)}
+.pr2 span{display:inline-block}.pr2 .r{color:var(--gold)}
+.sc{position:relative;z-index:2;max-width:560px;padding:0 22px}
+.sc h2{color:var(--gold);font-size:clamp(40px,7vw,80px);line-height:1.15}
+.sc p{font-weight:700;font-size:18px;line-height:1.8}
+.loc{max-width:980px;margin:auto;padding:70px 16px 50px}
+.loc h2{font-size:clamp(44px,9vw,110px);line-height:1.1}
+.ln{height:64px;border-block:4px solid var(--ink);position:relative;overflow:hidden;margin:26px 0;direction:ltr}
+.ln::before{content:"";position:absolute;inset:28px 0 auto;height:5px;background:repeating-linear-gradient(90deg,var(--ink) 0 40px,transparent 0 80px);animation:l2 1s linear infinite}
+@keyframes l2{to{background-position:80px 0}}
+.cr{position:absolute;top:8px;left:-120px;width:90px;height:38px;background:var(--gold);border:3px solid var(--ink);border-radius:14px 22px 8px 8px;animation:stp 6s cubic-bezier(.3,.7,.3,1) infinite}
+.cr::after{content:"";position:absolute;left:10px;bottom:-9px;width:16px;height:16px;border-radius:50%;background:var(--ink);box-shadow:50px 0 0 var(--ink)}
+@keyframes stp{0%{left:-120px}55%,70%{left:calc(50% - 45px)}100%{left:110%}}
+.hr{font-family:Lalezar,Cairo,sans-serif;font-size:clamp(28px,5vw,54px);color:var(--red);line-height:1.2}
+.fi{font:600 16px Cairo,sans-serif;width:100%;padding:6px 10px;border:2px solid #f3e9d2;border-radius:8px;background:#fff;color:#1d2b2a;margin:4px 0}
+.rv{opacity:0;translate:0 50px;filter:blur(14px);transition:opacity .8s,translate .8s cubic-bezier(.2,.9,.2,1),filter .8s}
+.rv.in{opacity:1;translate:0 0;filter:none}
+@media(prefers-reduced-motion:reduce){#intro{display:none}.rv{opacity:1;translate:none;filter:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="intro"><div class="stg"><div class="mk"><span class="b1">B</span><span class="b2">B</span></div><div class="wm" id="wm"></div></div><button id="skip">تخطي</button></div>
+<nav><a href="#top" class="nl">B<i>B</i></a><div class="lk"><a href="#top">الرئيسية</a><a href="#menu">المنيو</a><a href="#story">قصتنا</a><a href="#loc">الموقع</a></div><div class="ac"><button class="lgb" id="lg">EN</button><a class="nb" href="#qarrib">اطلب الحين</a></div><i class="pg" id="pg"></i></nav>
+<div class="checker"></div>
+<header id="top">
+  <span class="open"><i class="dot" id="dot"></i><span id="st">...</span></span>
+  <div class="logo" id="logo" title="اضغط">BR<span class="o">
+    <svg class="egg" viewBox="0 0 100 100"><path d="M50 6C74 4 96 26 92 52 88 80 62 96 40 92 16 88 4 64 12 40 18 20 34 7 50 6Z" fill="#fbf5e6" stroke="#a12b2b" stroke-width="5"/><circle cx="52" cy="50" r="22" fill="#e89a1c" stroke="#a12b2b" stroke-width="4"/><circle cx="44" cy="42" r="6" fill="#fff8" stroke="none"/></svg>
+    <svg class="wheel" viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="none" stroke="#fbf5e6" stroke-width="12"/><circle cx="50" cy="50" r="10" fill="#a12b2b" stroke="#fbf5e6" stroke-width="4"/><path d="M8 50H40M60 50H92M50 60V92" stroke="#fbf5e6" stroke-width="9" stroke-linecap="round"/></svg>
+  </span>THERS</div>
+  <div class="tag">فطورك عالسريع .. وانت ما نزلت من سيارتك</div>
+  <div class="hint">حرف الـ O بيضة عيون ودركسون بنفس الوقت<br>فطور ودرايف ثرو بنفس المكان</div>
+  <span class="steam" style="right:12%;animation-delay:0s"></span><span class="steam" style="right:30%;animation-delay:1.3s"></span><span class="steam" style="right:58%;animation-delay:2.4s"></span><span class="steam" style="right:80%;animation-delay:.7s"></span>
+</header>
+<div class="road"><span class="car">🚗💨</span></div>
+
+<main>
+  <h2 id="menu">المنيو</h2>
+  <p>كل شي طازج وعلى السخان، من أول الصبح لين الظهر. اختار اللي تشتهيه واطلبه.</p>
+  <div class="tabs" id="tabs"></div>
+  <div class="grid" id="grid"></div>
+
+  <section class="qarrib" id="qarrib">
+    <h2>قَرِّب · طلبك يسبقك</h2>
+    <p class="sub">اطلب وادفع من جوالك وانت بالطريق، واكتب لوحتك. أول ما تصف بالدرايف ثرو نعرفك من لوحتك، وطلبك حار بيدك. لا نتأخر ولا تتأخر عن دوامك.</p>
+    <div class="cols">
+      <div class="panel">
+        <b>سلتك</b>
+        <div id="cart"><p class="empty">السلة فاضية، ابدأ بكبدة وإلا بيض.</p></div>
+        <div class="row" style="margin-top:10px"><span>المجموع</span><span class="total" id="tot">0 ر.س</span></div>
+      </div>
+      <div class="panel">
+        <div id="form">
+          <b>لوحة سيارتك</b>
+          <div class="plate"><span>KSA</span><input id="pl" maxlength="3" placeholder="ABC" aria-label="حروف اللوحة"><input id="pn" class="n" maxlength="4" inputmode="numeric" placeholder="1234" aria-label="أرقام اللوحة"></div>
+          <input class="fi" id="nm" maxlength="60" placeholder="اسمك (اختياري)"><input class="fi" id="ph" inputmode="tel" maxlength="20" placeholder="رقم جوالك (اختياري)">
+          <button class="btn big" id="pay" disabled>أرسل الطلب</button><p class="note" id="er" style="color:#ffd27a;font-weight:700"></p>
+          <p class="note">الدفع عند الاستلام عند الشباك. تنبيه جاهزية الطلب يوصلك وانت فاتح هذه الصفحة.</p>
+        </div>
+        <div class="track" id="track">
+          <b id="oid"></b>
+          <div class="steps">
+            <div class="step" id="s1"><i>✓</i>استلمنا طلبك ودفعك</div>
+            <div class="step" id="s2"><i>✓</i>المطبخ بدأ على طلبك</div>
+            <div class="step" id="s3"><i>✓</i>قرّبت؟ اضغط تحت عشان نطلعه</div>
+          </div>
+          <div class="drive"><span class="c" id="cc">🚗</span><span class="w">🍳</span></div>
+          <button class="btn big" id="near" disabled>قرّبت من الفرع</button>
+          <div class="ready" id="rdy" hidden></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<section class="st" id="story"><div class="sk"><div class="pr2" id="pr2"><span class="l">B</span><span class="r">B</span></div><div class="sc" id="sc"><h2>حنا أخوين.</h2><p>ونؤمن إن صباحك يستاهل فطور يضبط مزاجك، مو طابور يضيّع وقتك.</p></div></div></section>
+<section class="loc" id="loc"><h2>الرياض .. قرّب</h2><div class="ln" aria-hidden="true"><div class="cr"></div></div><div class="hr">كل يوم من 5 الفجر لين 2 الظهر</div><p>العنوان والخريطة قريب ننزلها. درايف ثرو بس، خلك في سيارتك.</p></section>
+<footer>BROTHERS · فطور درايف ثرو · من 5 الفجر إلى 2 الظهر<br>الله يحييك، وتفطر وتروح دوامك مرتاح</footer>
+<div class="checker"></div>
+
+<script>
+var M=[
+{c:"سندويتشات",n:"سندويتش كبدة",d:"كبدة طازجة مقلية بالبصل والفلفل، بخبز محمص دافي.",p:14},
+{c:"سندويتشات",n:"بيض عيون",d:"بيضتين عيون على حافة الطبق، صفارها سايح.",p:10},
+{c:"سندويتشات",n:"بيض أومليت",d:"أومليت منفوخ بالجبن والفلفل الأخضر.",p:11},
+{c:"سندويتشات",n:"بيض مخفوق",d:"مخفوق كريمي على نار هادية.",p:10},
+{c:"سندويتشات",n:"ترياكي",d:"دجاج ترياكي لامع مع بيضة وخس.",p:16},
+{c:"سندويتشات",n:"حلومي",d:"حلومي مشوي يطقطق، وعسل خفيف فوقه.",p:13},
+{c:"مشروبات",n:"شاي",d:"شاي أحمر ثقيل بالنعناع لو تبي.",p:4},
+{c:"مشروبات",n:"كركديه",d:"بارد ومنعش، يصحصح الصبح.",p:7},
+{c:"مشروبات",n:"قهوة سودة",d:"سودة وصافية، تعدل المزاج.",p:6},
+{c:"جنب الطبق",n:"بطاطس مهروس مقرمش",d:"مهروس من جوّا، مفغوص ومقرمش من برّا.",p:8},
+{c:"حلا",n:"براونيز",d:"شوكولاتة غامقة وطرية، حلا الفطور.",p:9},
+{c:"حلا",n:"كرات فطيرة التفاح",d:"كرات صغيرة بالتفاح والقرفة، تنأكل بلقمة.",p:10}
+];
+var cats=[...new Set(M.map(function(x){return x.c}))],cur=cats[0],cart={};
+var $=function(i){return document.getElementById(i)};
+function tabs(){$("tabs").innerHTML=cats.map(function(c){return '<button class="tab'+(c==cur?' on':'')+'" data-c="'+c+'">'+c+'</button>'}).join("")}
+function grid(){$("grid").innerHTML=M.map(function(x,i){return x.c!=cur?"":'<div class="item" style="animation-delay:'+(i%6)*50+'ms"><b>'+x.n+'</b><p>'+x.d+'</p><div class="row"><span class="price">'+x.p+' ر.س</span><button class="btn" data-i="'+i+'">زيدها</button></div></div>'}).join("")}
+$("tabs").onclick=function(e){if(e.target.dataset.c){cur=e.target.dataset.c;tabs();grid()}};
+$("grid").onclick=function(e){var i=e.target.dataset.i;if(i!=null){cart[i]=(cart[i]||0)+1;draw();e.target.textContent="تمام ✓";setTimeout(function(){e.target.textContent="زيدها"},700)}};
+function draw(){var k=Object.keys(cart),t=0;
+$("cart").innerHTML=k.length?k.map(function(i){var x=M[i];t+=x.p*cart[i];return '<div class="line"><span>'+x.n+' × '+cart[i]+'</span><button data-r="'+i+'" aria-label="شيل">−</button></div>'}).join(""):'<p class="empty">السلة فاضية، ابدأ بكبدة وإلا بيض.</p>';
+$("tot").textContent=t+" ر.س";chk()}
+$("cart").onclick=function(e){var r=e.target.dataset.r;if(r!=null){if(--cart[r]<1)delete cart[r];draw()}};
+function chk(){$("pay").disabled=!(Object.keys(cart).length&&$("pl").value.length>=2&&$("pn").value.length>=1)}
+$("pl").oninput=function(){this.value=this.value.replace(/[^A-Za-z\u0621-\u064A]/g,"");chk()};
+$("pn").oninput=function(){this.value=this.value.replace(/\D/g,"");chk()};
+var SB="https://emuifwrmxvkohgzwwqks.supabase.co",KEY="sb_publishable_HZ7Y6BDehA7HZPry7pov0w_h3wtIkae",cur2=null,pt=null,pst=null;
+function api(path,o){o=o||{};o.headers={apikey:KEY,"Content-Type":"application/json"};return fetch(SB+"/rest/v1/"+path,o).then(function(r){return r.json().then(function(j){if(!r.ok)throw j;return j})})}
+function rpc(f,a){return api("rpc/"+f,{method:"POST",body:JSON.stringify(a)})}
+function esc2(t){return String(t).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+api("products?select=id,name,price,category&available=eq.true&order=sort").then(function(rows){var mp={};rows.forEach(function(r){mp[r.name]=r});
+M=M.filter(function(x){return mp[x.n]});M.forEach(function(x){x.id=mp[x.n].id;x.p=+mp[x.n].price});
+rows.forEach(function(r){if(!M.some(function(x){return x.n==r.name}))M.push({c:r.category,n:r.name,d:"",p:+r.price,id:r.id})});
+cats=[...new Set(M.map(function(x){return x.c}))];cur=cats[0];tabs();grid()}).catch(function(){});
+$("pay").onclick=function(){var b=this;b.disabled=true;$("er").textContent="";try{Notification.requestPermission()}catch(x){}
+var items=Object.keys(cart).map(function(i){return{product_id:M[i].id,qty:cart[i]}});
+rpc("place_order",{p_name:$("nm").value,p_phone:$("ph").value,p_plate:$("pl").value+" "+$("pn").value,p_items:items}).then(function(r){
+cur2={id:r.order_id,token:r.token};try{localStorage.setItem("bro_ord",JSON.stringify(cur2))}catch(x){}cart={};draw();poll()}).catch(function(e){
+var m=String(e&&e.message||"");$("er").textContent=m.indexOf("sold_out")>-1?"عذرًا، صنف في طلبك خلص":m.indexOf("too_many")>-1?"عندك طلبات كثيرة نشطة على هذي اللوحة":"تعذر إرسال الطلب، جرّب مرة ثانية";chk()})};
+function showTrack(o){$("form").hidden=true;var t=$("track");t.classList.add("on");var ks=["new","accepted","preparing","ready","completed"],i=ks.indexOf(o.status);
+t.innerHTML='<b>طلب #'+o.order_no+' · لوحة '+esc2(o.plate)+'</b><div class="steps">'+[["🟡","تم استلام الطلب"],["🟢","تم قبول الطلب"],["🟠","جاري التجهيز"],["🔵","طلبك جاهز، تفضل للاستلام"]].map(function(x,j){return '<div class="step'+(o.status!="cancelled"&&j<=i?' done':'')+'"><i>'+x[0]+'</i>'+x[1]+'</div>'}).join("")+'</div>'
++(o.status=="ready"?'<div class="ready">🔔 حياك، طلبك جاهز للاستلام 🚗</div>':"")+(o.status=="completed"?'<div class="ready">يعافيك ربي، ويومك سعيد 🤍</div>':"")+(o.status=="cancelled"?'<div class="ready">تم إلغاء الطلب</div>':"")
++(i==4||o.status=="cancelled"?'<button class="btn big" id="nw">طلب جديد</button>':"");
+var nw=$("nw");if(nw)nw.onclick=function(){stopT();$("form").hidden=false;t.classList.remove("on");t.innerHTML=""};
+if(pst&&pst!=o.status&&o.status=="ready"){try{navigator.vibrate([300,100,300])}catch(x){}try{if(Notification.permission=="granted")new Notification("🔔 طلبك جاهز",{body:"حياك، طلبك جاهز للاستلام 🚗"})}catch(x){}}
+pst=o.status}
+function stopT(){clearInterval(pt);cur2=null;pst=null;try{localStorage.removeItem("bro_ord")}catch(x){}}
+function poll(){clearInterval(pt);function go(){rpc("track_order",{p_id:cur2.id,p_token:cur2.token}).then(function(o){if(!o){stopT();$("form").hidden=false;$("track").classList.remove("on");return}showTrack(o);if(o.status=="completed"||o.status=="cancelled")clearInterval(pt)}).catch(function(){})}go();pt=setInterval(go,4000)}
+try{cur2=JSON.parse(localStorage.getItem("bro_ord"))}catch(x){}if(cur2&&cur2.id)poll();else cur2=null;
+$("logo").onclick=function(){this.classList.toggle("alt")};
+setInterval(function(){$("logo").classList.toggle("alt")},3600);
+function hrs(){var h=parseInt(new Intl.DateTimeFormat("en-GB",{hour:"numeric",hour12:false,timeZone:"Asia/Riyadh"}).format(new Date()),10);var on=h>=5&&h<14;$("dot").className="dot"+(on?" on":"");$("st").textContent=on?"مفتوح الحين · لين 2 الظهر":"مسكّرين · نفتح 5 الفجر"}
+hrs();tabs();grid();
+
+var lang="ar",O=new WeakMap,T=new WeakMap,q=0;
+var D=[["سندويتشات","Sandwiches"],["مشروبات","Drinks"],["جنب الطبق","Sides"],["حلا","Sweets"],["سندويتش كبدة","Liver sandwich"],["بيض عيون","Fried eggs"],["بيض أومليت","Omelette"],["بيض مخفوق","Scrambled eggs"],["ترياكي","Teriyaki"],["حلومي","Halloumi"],["شاي","Tea"],["كركديه","Karkade"],["قهوة سودة","Black coffee"],["بطاطس مهروس مقرمش","Crispy mashed potato"],["براونيز","Brownies"],["كرات فطيرة التفاح","Apple pie bites"],
+["كبدة طازجة مقلية بالبصل والفلفل، بخبز محمص دافي.","Fresh liver fried with onion and pepper, on warm toasted bread."],["بيضتين عيون على حافة الطبق، صفارها سايح.","Two fried eggs with a runny yolk."],["أومليت منفوخ بالجبن والفلفل الأخضر.","Fluffy omelette with cheese and green pepper."],["مخفوق كريمي على نار هادية.","Creamy scrambled eggs on low heat."],["دجاج ترياكي لامع مع بيضة وخس.","Glazed teriyaki chicken with egg and lettuce."],["حلومي مشوي يطقطق، وعسل خفيف فوقه.","Crackling grilled halloumi with a light honey drizzle."],["شاي أحمر ثقيل بالنعناع لو تبي.","Strong black tea, with mint if you like."],["بارد ومنعش، يصحصح الصبح.","Cold and refreshing, wakes up your morning."],["سودة وصافية، تعدل المزاج.","Black and clean, sets the mood right."],["مهروس من جوّا، مفغوص ومقرمش من برّا.","Soft mash inside, crispy outside."],["شوكولاتة غامقة وطرية، حلا الفطور.","Dark, fudgy chocolate, the breakfast sweet."],["كرات صغيرة بالتفاح والقرفة، تنأكل بلقمة.","Little apple and cinnamon bites, one mouthful each."],
+[" ر.س"," SAR"],["زيدها","Add"],["تمام ✓","Added ✓"],["المنيو","Menu"],["كل شي طازج وعلى السخان، من أول الصبح لين الظهر. اختار اللي تشتهيه واطلبه.","Everything fresh and hot, from first thing in the morning until noon. Pick what you crave and order it."],
+["فطورك عالسريع .. وانت ما نزلت من سيارتك","Breakfast on the go .. without leaving your car"],["حرف الـ O بيضة عيون ودركسون بنفس الوقت","The O is a fried egg and a steering wheel at once"],["فطور ودرايف ثرو بنفس المكان","Breakfast and drive-thru in the same place"],
+["مفتوح الحين · لين 2 الظهر","Open now · until 2 PM"],["مسكّرين · نفتح 5 الفجر","Closed · opens 5 AM"],
+["قَرِّب · طلبك يسبقك","Qarrib · your order gets there first"],["اطلب وادفع من جوالك وانت بالطريق، واكتب لوحتك. أول ما تصف بالدرايف ثرو نعرفك من لوحتك، وطلبك حار بيدك. لا نتأخر ولا تتأخر عن دوامك.","Order and pay from your phone on the way and enter your plate. The moment you pull into the drive-thru we know you by your plate, and your order is hot in your hand. We won't be late, and you won't be late for work."],
+["سلتك","Your basket"],["السلة فاضية، ابدأ بكبدة وإلا بيض.","Your basket is empty. Start with liver or eggs."],["المجموع","Total"],["لوحة سيارتك","Your plate"],["أرسل الطلب","Send order"],["الدفع عند الاستلام عند الشباك. تنبيه جاهزية الطلب يوصلك وانت فاتح هذه الصفحة.","Pay at the window on pickup. The ready alert reaches you while this page is open."],
+["طلب","Order"],["لوحة","Plate"],["استلمنا طلبك ودفعك","We got your order and payment"],["المطبخ بدأ على طلبك","The kitchen started your order"],["قرّبت؟ اضغط تحت عشان نطلعه","Close? Tap below so we fire it"],["قرّبت من الفرع","I'm near the branch"],["طلعنا طلبك من الفرن","Your order is out of the oven"],["يا هلا!","Hey!"],["طلبك جاهز، وقّف عند الشباك","your order is ready, pull up at the window"],
+["الرئيسية","Home"],["قصتنا","Our story"],["الموقع","Location"],["اطلب الحين","Order now"],["تخطي","Skip"],["حنا أخوين.","We're two brothers."],["ونؤمن إن صباحك يستاهل فطور يضبط مزاجك، مو طابور يضيّع وقتك.","And we believe your morning deserves a breakfast that sets your mood right, not a queue that wastes your time."],
+["الرياض .. قرّب","Riyadh. Pull up."],["كل يوم من 5 الفجر لين 2 الظهر","Every day, 5 AM to 2 PM"],["العنوان والخريطة قريب ننزلها. درايف ثرو بس، خلك في سيارتك.","Address and map coming soon. Drive-thru only, stay in your car."],
+["فطور درايف ثرو","Drive-thru breakfast"],["من 5 الفجر إلى 2 الظهر","5 AM to 2 PM"],["الله يحييك، وتفطر وتروح دوامك مرتاح","Welcome, have breakfast and head to work relaxed"]];
+D.push(["تم استلام الطلب","Order received"],["تم قبول الطلب","Order accepted"],["جاري التجهيز","Being prepared"],["طلبك جاهز، تفضل للاستلام","Your order is ready, come pick it up"],["🔔 حياك، طلبك جاهز للاستلام 🚗","🔔 Welcome, your order is ready 🚗"],["يعافيك ربي، ويومك سعيد 🤍","Thank you, have a lovely day 🤍"],["طلب جديد","New order"],["تم إلغاء الطلب","Order cancelled"],["تعذر إرسال الطلب، جرّب مرة ثانية","Couldn't send the order, try again"],["عندك طلبات كثيرة نشطة على هذي اللوحة","Too many active orders on this plate"],["عذرًا، صنف في طلبك خلص","Sorry, an item in your order just sold out"]);D.sort(function(a,b){return b[0].length-a[0].length});
+function tr(){var en=lang=="en",w=document.createTreeWalker(document.body,4),n,v;
+while(n=w.nextNode()){if(/^(SCRIPT|STYLE)$/.test(n.parentNode.nodeName))continue;
+if(!O.has(n)||(T.has(n)&&T.get(n)!==n.data))O.set(n,n.data);
+v=O.get(n);if(en)D.forEach(function(k){v=v.split(k[0]).join(k[1])});
+T.set(n,v);if(n.data!==v)n.data=v}}
+new MutationObserver(function(){if(lang=="en"&&!q){q=1;requestAnimationFrame(function(){q=0;tr()})}}).observe(document.body,{childList:true,subtree:true,characterData:true});
+$("lg").onclick=function(){lang=lang=="ar"?"en":"ar";var a=lang=="ar",d=document.documentElement;d.lang=lang;d.dir=a?"rtl":"ltr";this.textContent=a?"EN":"عربي";document.title=a?"BROTHERS | فطورك عالسريع":"BROTHERS | Breakfast on the go";tr()};
+"BROTHERS".split("").forEach(function(c,i){var e=document.createElement("span");e.textContent=c;e.style.setProperty("--i",i);$("wm").appendChild(e)});
+function go(){document.body.classList.add("live");var n=$("intro");if(n)n.remove()}
+if(matchMedia("(prefers-reduced-motion:reduce)").matches)go();else{setTimeout(function(){document.body.classList.add("live")},3000);setTimeout(function(){var n=$("intro");if(n)n.remove()},4100)}
+$("skip").onclick=go;
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.15});
+document.querySelectorAll("main>h2,main>p,.qarrib,.loc>*").forEach(function(e){e.classList.add("rv");io.observe(e)});
+function cl(x){return Math.min(1,Math.max(0,x))}
+function sc(){var y=scrollY,vh=innerHeight,r=$("story").getBoundingClientRect(),p=cl(-r.top/(r.height-vh)),e=1-Math.pow(1-cl(p*2),3),k=$("pr2").children,g=(1-e)*innerWidth*.42,c=cl((p-.4)/.3);
+$("pg").style.width=y/(document.documentElement.scrollHeight-vh)*100+"%";$("logo").style.translate="0 "+Math.min(y,vh)*.12+"px";
+k[0].style.transform="translateX("+-g+"px)";k[1].style.transform="translateX("+g+"px)";k[1].style.fontSize=(1-e*.54)+"em";
+$("pr2").style.opacity=1-cl((p-.45)/.4)*.75;var s=$("sc").style;s.opacity=c;s.filter="blur("+(1-c)*12+"px)";s.transform="translateY("+(1-c)*40+"px)"}
+addEventListener("scroll",function(){requestAnimationFrame(sc)},{passive:true});sc();
+</script>
+</body>
+</html>
